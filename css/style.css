@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.container {
+  position: relative;
+  width: 1200px;
+  height: 600px;
+  margin: 80px auto 0;
+}
+.container .box {
+  position: relative;
+  width: calc(400px - 30px);
+  height: calc(300px - 30px);
+  background: #000;
+  float: left;
+  margin: 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba (0, 0, 0, 0.8);
+}
+.container .box::before {
+  content: "";
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  position: absolute;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transform: scaleX(0);
+  opacity: 0;
+  z-index: 1;
+}
+.container .box:hover:before {
+  transform: scaleX(1);
+  opacity: 1;
+  cursor: pointer;
+}
+.container .box::after {
+  content: "";
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  position: absolute;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transform: scaleY(0);
+  opacity: 0;
+  z-index: 1;
+}
+.container .box:hover:after {
+  transform: scaleY(1);
+  opacity: 1;
+  cursor: pointer;
+}
+.container .box .imgbox {
+  position: relative;
+}
+.container .box .imgbox img {
+  width: 370px;
+  height: 270px;
+  transition: 0.5s;
+}
+.container .box:hover .imgbox img {
+  opacity: 0.2;
+  transform: scale(1.2);
+}
+.container .box .content {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #fff;
+}
+.container .box .content h2 {
+  text-align: center;
+  transition: 0.5s;
+  transform: translateY(-50px);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.container .box .content p {
+  margin: 0;
+  text-align: center;
+  padding-left: 0px;
+  transition: 0.5s;
+  transform: translateY(50px);
+  visibility: hidden;
+  opacity: 0;
+}
+.container .box:hover .content p,
+.container .box:hover .content h2 {
+  transform: translateY(0px);
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0.2s;
+}
